@@ -1,3 +1,4 @@
+import { usePort } from "@plasmohq/messaging/hook"
 import { useStorage } from "@plasmohq/storage/hook"
 import { useEffect, useState } from "react"
 
@@ -43,7 +44,17 @@ function IndexPopup() {
         setRemoveButton(false)
       }
     })
-  }, [items])
+
+    chrome.contextMenus.onClicked.addListener((info) => {
+      if (info.menuItemId === "save") {
+        if (removeButton) {
+          onRemoveURL()
+        } else {
+          onSave()
+        }
+      }
+    })
+  }, [items, removeButton])
 
   const onSave = async () => {
     await setItems((prev) => [...prev, currentPage])

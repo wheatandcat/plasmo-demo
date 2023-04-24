@@ -10,6 +10,7 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.2.0",
     "@plasmohq/storage": "^1.5.0",
     "plasmo": "0.69.0",
     "react": "18.2.0",
@@ -36,7 +37,8 @@
       "scripting",
       "storage",
       "tabs",
-      "contextMenus"
+      "contextMenus",
+      "contextMenus.onClicked.addListener"
     ]
   }
 }
